@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Greeting.hpp"
+#include "greeting/Greeting.hpp"
 
 int main()
 {

@@ -7,4 +7,6 @@ find_package(Boost 1.55 COMPONENTS date_time REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
-add_executable(Tutorial Greeting.cpp Greeting.hpp Tutorial.cpp)
+add_subdirectory(greeting)
+add_executable(Tutorial Tutorial.cpp)
+target_link_libraries(Tutorial greeting)
