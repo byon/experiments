@@ -1,3 +1,3 @@
 cmake_minimum_required (VERSION 2.8)
 project (Tutorial)
-add_executable(Tutorial Tutorial.cpp)
+add_executable(Tutorial Greeting.cpp Greeting.hpp Tutorial.cpp)
