@@ -8,5 +8,6 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 
 add_subdirectory(greeting)
+add_subdirectory(date)
 add_executable(Tutorial Tutorial.cpp)
-target_link_libraries(Tutorial greeting)
+target_link_libraries(Tutorial greeting date)

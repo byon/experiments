@@ -1,9 +1,7 @@
-#include "Greeting.hpp"
-#include "boost/date_time/gregorian/gregorian.hpp"
+#include "greeting/Greeting.hpp"
+#include "date/Date.hpp"
 
 std::string Greeting()
 {
-    using namespace boost::gregorian;
-
-    return "Hello world on " + to_simple_string(day_clock::local_day());
+    return "Hello world on " + Date();
 }
