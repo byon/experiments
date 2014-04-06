@@ -7,6 +7,8 @@
 #else
 #define DATE_LIBRARY_EXPORT __declspec(dllimport)
 #endif
+#else
+#define DATE_LIBRARY_EXPORT
 #endif
 
 #include <string>
