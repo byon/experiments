@@ -1,4 +1,3 @@
-#include <iostream>
 #include "greeting/Greeting.hpp"
 
 int main()
