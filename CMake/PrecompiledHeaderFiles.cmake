@@ -1,3 +1,9 @@
+# Modification from original from: https://gist.github.com/larsch/573926
+# Added:
+#  - Dependency between precompiled header files and the using source files
+#
+# Original documentation and licence:
+#------------------------------------
 # Macro for setting up precompiled headers. Usage:
 #
 #   add_precompiled_header(target header.h [FORCEINCLUDE])
@@ -45,6 +51,7 @@ MACRO(ADD_PRECOMPILED_HEADER _targetName _input)
   ENDFOREACH(arg)
 
   IF(MSVC)
+    SET(pch_binary ${_inputWe}.pch)
     GET_TARGET_PROPERTY(sources ${_targetName} SOURCES)
     SET(_sourceFound FALSE)
     FOREACH(_source ${sources})
@@ -54,13 +61,20 @@ MACRO(ADD_PRECOMPILED_HEADER _targetName _input)
         IF(_sourceWe STREQUAL ${_inputWe})
           SET(PCH_COMPILE_FLAGS "${PCH_COMPILE_FLAGS} /Yc${_input}")
           SET(_sourceFound TRUE)
+          SET_SOURCE_FILES_PROPERTIES(${_source}
+            PROPERTIES
+            COMPILE_FLAGS "${PCH_COMPILE_FLAGS}"
+            OBJECT_OUTPUTS "${pch_binary}")
         ELSE(_sourceWe STREQUAL ${_inputWe})
           SET(PCH_COMPILE_FLAGS "${PCH_COMPILE_FLAGS} /Yu${_input}")
           IF(FORCEINCLUDE)
             SET(PCH_COMPILE_FLAGS "${PCH_COMPILE_FLAGS} /FI${_input}")
           ENDIF(FORCEINCLUDE)
+          SET_SOURCE_FILES_PROPERTIES(${_source}
+            PROPERTIES
+            COMPILE_FLAGS "${PCH_COMPILE_FLAGS}"
+            OBJECT_DEPENDS "${pch_binary}")
         ENDIF(_sourceWe STREQUAL ${_inputWe})
-        SET_SOURCE_FILES_PROPERTIES(${_source} PROPERTIES COMPILE_FLAGS "${PCH_COMPILE_FLAGS}")
       ENDIF(_source MATCHES \\.\(cc|cxx|cpp\)$)
     ENDFOREACH()
     IF(NOT _sourceFound)
