@@ -3,6 +3,11 @@ project (Tutorial)
 
 include(PrecompiledHeaderFiles.cmake)
 
+set_source_files_properties(tags PROPERTIES GENERATED true)
+add_custom_target(tags
+  COMMAND ctags -e -R .
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+
 set(Boost_USE_STATIC_LIBS ON)
 find_package(Boost 1.55 COMPONENTS date_time REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
@@ -13,3 +18,4 @@ add_subdirectory(date)
 add_executable(Tutorial Tutorial.cpp Precompiled.cpp Precompiled.hpp)
 add_precompiled_header(Tutorial Precompiled.hpp FORCEINCLUDE)
 target_link_libraries(Tutorial greeting date ${Boost_LIBRARIES})
+add_dependencies(Tutorial tags)
