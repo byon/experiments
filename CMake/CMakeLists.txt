@@ -5,7 +5,7 @@ include(PrecompiledHeaderFiles.cmake)
 
 set_source_files_properties(tags PROPERTIES GENERATED true)
 add_custom_target(tags
-  COMMAND ctags -e -R .
+  COMMAND gtags
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 set(Boost_USE_STATIC_LIBS ON)
