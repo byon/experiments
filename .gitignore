@@ -3,3 +3,4 @@ TAGS
 GTAGS
 GRTAGS
 GPATH
+*.elc
