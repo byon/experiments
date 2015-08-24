@@ -1,4 +1,5 @@
 module static_hello
+  use ask_name
   implicit none
 
   private
@@ -11,7 +12,9 @@ module static_hello
 contains
 
   subroutine say_hello
-    print *, "Hello World!"
+    character(len=:), allocatable :: name
+    call ask_name_from_user(name)
+    print *, "Hello ", name, "!"
   end subroutine say_hello
 
 end module static_hello
