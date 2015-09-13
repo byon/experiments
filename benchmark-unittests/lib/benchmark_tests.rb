@@ -11,6 +11,7 @@ def main(arguments)
 end
 
 def run_benchmark(count)
+  yield 1
   count.times do |i|
     base = 10 ** i
     (1..5).each do |j|
