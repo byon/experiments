@@ -33,14 +33,16 @@ def benchmark_an_average_test_set(file_count)
 end
 
 def print_header
-  puts "file_count | method count | elapsed s | average ms / test"
+  puts "file_count | method count | elapsed s | average s / test | average s / file"
 end
 
 def benchmark_tests(file_count, method_count)
   ensure_old_tests_are_gone
   elapsed_seconds = measure_tests(file_count, method_count)
-  average = "%.10f" % (elapsed_seconds / (file_count * method_count))
-  puts "#{file_count} | #{method_count} | #{elapsed_seconds} | #{average}"
+  average_per_test = "%.10f" % (elapsed_seconds / (file_count * method_count))
+  average_per_file = "%.10f" % (elapsed_seconds / file_count)
+  puts "#{file_count} | #{method_count} | #{elapsed_seconds} | " +
+    "#{average_per_test} | #{average_per_file}"
 end
 
 def ensure_old_tests_are_gone
