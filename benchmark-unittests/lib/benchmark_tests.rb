@@ -38,7 +38,7 @@ end
 def benchmark_tests(file_count, method_count)
   ensure_old_tests_are_gone
   elapsed_seconds = measure_tests(file_count, method_count)
-  average = "%.10f" % ((elapsed_seconds * 1000) / (file_count * method_count))
+  average = "%.10f" % (elapsed_seconds / (file_count * method_count))
   puts "#{file_count} | #{method_count} | #{elapsed_seconds} | #{average}"
 end
 
