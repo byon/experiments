@@ -1,4 +1,5 @@
 require 'benchmark_common'
+require 'generate_ruby_tests'
 
 class BenchmarkRubyTests < Benchmark
 

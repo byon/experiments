@@ -1,5 +1,4 @@
 require 'fileutils'
-require 'generate_ruby_tests'
 include System::Diagnostics
 
 class Benchmark
