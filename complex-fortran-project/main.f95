@@ -1,4 +1,4 @@
-program hello
+program hello_main
   use hello
   use static_hello
   use dynamic_hello
@@ -7,4 +7,4 @@ program hello
   call say_hello()
   call static_say_hello()
   call dynamic_say_hello()
-end program hello
+end program hello_main
