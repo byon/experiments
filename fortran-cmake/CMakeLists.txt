@@ -15,4 +15,7 @@ set (CMAKE_Fortran_FLAGS_DEBUG "-O0 -g")
 
 add_executable (hello-world
   hello.f90
+  intermediate1.f90
+  intermediate2.f90
+  intermediate3.f90
   say_hello.f90)

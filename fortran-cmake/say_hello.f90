@@ -7,6 +7,6 @@ module say_hello
 contains
 
   subroutine say()
-    print *, "Hello from function"
-  end subroutine
+    print *, "Hello from function say"
+  end subroutine say
 end module say_hello

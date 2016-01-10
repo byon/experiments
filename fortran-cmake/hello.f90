@@ -1,6 +1,6 @@
 program hello
-  use say_hello
+  use intermediate1
   implicit none
 
-  call say()
+  call do()
 end program hello
