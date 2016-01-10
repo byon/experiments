@@ -1,5 +1,6 @@
 program hello
+  use say_hello
   implicit none
 
-  print *, "Hello World!"
+  call say()
 end program hello
