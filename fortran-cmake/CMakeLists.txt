@@ -9,8 +9,9 @@ if (NOT CMAKE_BUILD_TYPE)
       FORCE)
 endif (NOT CMAKE_BUILD_TYPE)
 
-set (CMAKE_Fortran_FLAGS_RELEASE "-funroll-all-loops -fno-f2c -O3")
-set (CMAKE_Fortran_FLAGS_DEBUG   "-fno-f2c -O0 -g")
+set (CMAKE_Fortran_FLAGS "-std=f2008 -fno-f2c")
+set (CMAKE_Fortran_FLAGS_RELEASE "-funroll-all-loops -O3")
+set (CMAKE_Fortran_FLAGS_DEBUG "-O0 -g")
 
 add_executable (hello-world
   hello.f90
