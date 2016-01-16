@@ -13,9 +13,11 @@ set (CMAKE_Fortran_FLAGS "-std=f2008 -fno-f2c")
 set (CMAKE_Fortran_FLAGS_RELEASE "-funroll-all-loops -O3")
 set (CMAKE_Fortran_FLAGS_DEBUG "-O0 -g")
 
-add_executable (hello-world
-  hello.f90
+add_library(hello STATIC
   intermediate1.f90
   intermediate2.f90
   intermediate3.f90
   say_hello.f90)
+add_executable (hello-world
+  hello.f90)
+target_link_libraries(hello-world hello)
