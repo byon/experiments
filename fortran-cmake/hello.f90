@@ -1,8 +1,8 @@
 program hello
   use intermediate1
-  use say_dynamic_hello
+  use dynamic_intermediate
   implicit none
 
   call do()
-  call say_hello()
+  call do_dynamic()
 end program hello
