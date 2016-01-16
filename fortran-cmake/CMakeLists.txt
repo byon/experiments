@@ -18,6 +18,8 @@ add_library(hello STATIC
   intermediate2.f90
   intermediate3.f90
   say_hello.f90)
+add_library(hello-dynamic SHARED
+  say_dynamic_hello.f90)
 add_executable (hello-world
   hello.f90)
-target_link_libraries(hello-world hello)
+target_link_libraries(hello-world hello hello-dynamic)
